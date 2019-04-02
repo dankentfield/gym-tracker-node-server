@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const uri = `mongodb+srv://react-native-app:${process.env.MONGO_PASSWORD}@cluster0-3cslz.mongodb.net/gymTracker?retryWrites=true`;
+const uri = 'mongodb+srv://react-native-app:' + process.env.MONGO_PASSWORD + '@cluster0-3cslz.mongodb.net/gymTracker?retryWrites=true';
 
 
 mongoose.connect(uri, { useNewUrlParser: true });
