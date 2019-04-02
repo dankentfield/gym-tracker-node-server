@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
         .then(doc => {
 
             if (doc) {
-                res.status(200).json("Document(s) found successfully: ", doc)
+                res.status(200).json({"Document(s) found successfully": doc})
             } else {
                 res.status(404).json({ Error: "Error finding document(s)." })
             }
@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
             .then(doc => {
 
                 if (doc) {
-                    res.status(200).json("Document(s) found successfully: ", doc)
+                    res.status(200).json({"Document(s) found successfully": doc})
                 } else {
                     res.status(404).json({ Error: "Error finding document(s)." })
                 }
@@ -59,7 +59,7 @@ router.post('/', (req, res, next) => {
         exercise.save()
             .then(doc => {
                 if (doc) {
-                    res.status(200).json("Document sent successfully: ", doc)
+                    res.status(200).json({"Document sent successfully": doc})
                 } else {
                     res.status(404).json({ Error: "Error posting document." })
                 }
@@ -82,7 +82,7 @@ router.put('/:id', (req, res, next) => {
             .then(doc => {
 
                 if (doc) {
-                    res.status(200).json("Document updated successfully: ", doc)
+                    res.status(200).json({"Document updated successfully": doc})
                 } else {
                     res.status(404).json({ Error: "Error updating document." })
                 }
@@ -108,7 +108,7 @@ router.delete('/:id', (req, res, next) => {
         .then(doc => {
 
             if (doc) {
-                res.status(200).json("Document deleted successfully: ", doc)
+                res.status(200).json({"Document deleted successfully": doc})
             } else {
                 res.status(404).json({ Error: "Error deleting document." })
             }

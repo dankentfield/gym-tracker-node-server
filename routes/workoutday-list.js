@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         .exec()
         .then(doc => {
             if (doc) {
-                res.status(200).json("Documents found successfully: ", doc)
+                res.status(200).json({"Documents found successfully": doc})
             } else {
                 res.status(404).json({ Error: "Error finding documents." })
             }           
@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
             
             .then(doc => {
                 if (doc) {
-                    res.status(200).json("Document successfully found: ", doc)
+                    res.status(200).json({"Document successfully found": doc})
                 } else {
                     res.status(404).json({ Error: "No document found" })
                 }
@@ -55,7 +55,7 @@ router.post('/', (req, res, next) => {
         workoutList.save()
             .then(doc => {
                 if (doc) {
-                    res.status(200).json("Document successfully saved: ", doc)
+                    res.status(200).json({"Document successfully saved": doc})
                 } else {
                     res.status(404).json({ Error: "Error saving document." })
                 }
@@ -75,7 +75,7 @@ router.put('/:id', (req, res, next) => {
         WorkoutDayList.findByIdAndUpdate(req.params.id, payload)
         .then(doc => {
             if (doc) {
-                res.status(200).json("Document successfully updated: ", doc)
+                res.status(200).json({"Document successfully updated": doc})
             } else {
                 res.status(404).json({ Error: "Error updating document." })
             }
@@ -94,7 +94,7 @@ router.delete('/:id', (req, res, next) => {
         WorkoutDayList.findByIdAndDelete(req.params.id)
         .then(doc => {
             if (doc) {
-                res.status(200).json("Document successfully deleted: ", doc)
+                res.status(200).json({"Document successfully deleted": doc})
             } else {
                 res.status(404).json({ Error: "Error deleting document." })
             }
