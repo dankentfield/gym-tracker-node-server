@@ -50,7 +50,6 @@ router.post('/', (req, res, next) => {
     if (req.body) {
         const workout = new Workout({
             _id: new mongoose.Types.ObjectId(),
-            recordDate: req.body.recordDate,
             workout: req.body.workout,
 
         });
