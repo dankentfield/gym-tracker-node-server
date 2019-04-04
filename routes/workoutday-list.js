@@ -50,7 +50,7 @@ router.post('/', (req, res, next) => {
         const workoutList = new WorkoutDayList({
             _id: new mongoose.Types.ObjectId(),
             userid: req.body.userid,
-            exerciseName: req.body.exerciseName
+            workouts: req.body.workouts
     
         });
         workoutList.save()
