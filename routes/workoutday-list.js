@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         .exec()
         .then(doc => {
             if (doc) {
-                res.status(200).json({"Documents found successfully": doc})
+                res.status(200).json(doc)
             } else {
                 res.status(404).json({ Error: "Error finding documents." })
             }           
@@ -63,7 +63,7 @@ router.post('/', (req, res, next) => {
             })
             .catch(err => console.log(err))
     } else {
-        res.status(400).json({ Error: "Please provide a string value in 'exerciseName' in the request body." })
+        res.status(400).json({ Error: "Please provide a string value in 'workouts' and number in 'userid' in the request body." })
     }
     
 })
