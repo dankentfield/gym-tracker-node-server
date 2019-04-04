@@ -46,7 +46,7 @@ router.get('/:userid', (req, res) => {
 
 
 router.post('/', (req, res, next) => {
-    if (req.body.exerciseName && req.body.userid) { 
+    if (req.body.workouts && req.body.userid) { 
         const workoutList = new WorkoutDayList({
             _id: new mongoose.Types.ObjectId(),
             userid: req.body.userid,
