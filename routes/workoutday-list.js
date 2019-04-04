@@ -31,7 +31,7 @@ router.get('/:userid', (req, res) => {
             
             .then(doc => {
                 if (doc) {
-                    res.status(200).json({"Document successfully found": doc})
+                    res.status(200).json(doc)
                 } else {
                     res.status(404).json({ Error: "No document found" })
                 }
