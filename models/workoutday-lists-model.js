@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const workoutDayListSchema = new Schema({
     _id:  mongoose.Types.ObjectId,
-    recordDate: Date,
+    userid: Number,
     workout: [Object],
 
 });

@@ -23,11 +23,11 @@ router.get('/', (req, res) => {
         .catch(err => console.log(err))
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:userid', (req, res) => {
 
-    if (req.params.id) {
+    if (req.params.userid) {
 
-        WorkoutDayList.findById(req.params.id)
+        WorkoutDayList.find({"userid": {$eq: req.params.userid}})
             
             .then(doc => {
                 if (doc) {
@@ -46,9 +46,10 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/', (req, res, next) => {
-    if (req.body.exerciseName) { 
+    if (req.body.exerciseName && req.body.userid) { 
         const workoutList = new WorkoutDayList({
             _id: new mongoose.Types.ObjectId(),
+            userid: req.body.userid,
             exerciseName: req.body.exerciseName
     
         });
