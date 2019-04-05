@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
         .then(doc => {
 
             if (doc) {
-                res.status(200).json({"Document(s) found successfully": doc})
+                res.status(200).json(doc)
             } else {
                 res.status(404).json({ Error: "Error finding document(s)." })
             }
@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
             .then(doc => {
 
                 if (doc) {
-                    res.status(200).json({"Document(s) found successfully": doc})
+                    res.status(200).json(doc)
                 } else {
                     res.status(404).json({ Error: "Error finding document(s)." })
                 }
@@ -50,10 +50,11 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res, next) => {
 
-    if(req.body.exerciseName) {
+    if(req.body.exerciseName & req.body.imageUrl) {
         const exercise = new Exercise({
             _id: new mongoose.Types.ObjectId(),
-            exerciseName: req.body.exerciseName
+            exerciseName: req.body.exerciseName,
+            imageUrl: req.body.imageUrl
     
         });
         exercise.save()
