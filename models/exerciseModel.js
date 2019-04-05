@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 
 const exerciseSchema = new Schema({
     _id:  mongoose.Types.ObjectId,
+    id: Number,
     exerciseName: String,
     imageUrl: String
 });
