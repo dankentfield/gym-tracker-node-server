@@ -53,6 +53,7 @@ router.post('/', (req, res, next) => {
     if(req.body.exerciseName && req.body.imageUrl) {
         const exercise = new Exercise({
             _id: new mongoose.Types.ObjectId(),
+            id: req.body.id,
             exerciseName: req.body.exerciseName,
             imageUrl: req.body.imageUrl
     
