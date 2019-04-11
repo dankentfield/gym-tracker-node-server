@@ -37,10 +37,10 @@ router.get('/email/:email', (req, res) => {
             
             .then(doc => {
 
-                if (doc) {
+                if (doc[0].email === req,params.email) {
                     res.status(200).json(true)
                 } else {
-                    res.status(404).json({ Error: "Error finding user(s)." })
+                    res.status(200).json(false)
                 }
                 
                
