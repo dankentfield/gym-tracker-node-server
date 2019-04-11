@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
     }
 })
 
-router.get('/:email', (req, res) => {
+router.get('/email/:email', (req, res) => {
 
     if (req.params.email) {
 
