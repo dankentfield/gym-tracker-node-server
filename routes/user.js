@@ -37,7 +37,7 @@ router.get('/email/:email', (req, res) => {
             
             .then(doc => {
 
-                if (doc[0].email === req.params.email) {
+                if (doc[0].email == req.params.email) {
                     res.status(200).json(true)
                 } else {
                     res.status(200).json(false)
