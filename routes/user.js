@@ -33,17 +33,15 @@ router.get('/email/:email', (req, res) => {
 
     if (req.params.email) {
 
-        User.find( { email: { $eq: req.params.email } } )
+        User.find( { email: { $eq: req.params.email } }, {password: false} )
             
             .then(doc => {
-
-                if (doc[0].email == req.params.email) {
-                    res.status(200).json(true)
-                } else {
-                    res.status(200).json(false)
-                }
-                
                
+                if (doc) {
+                    res.status(200).json(doc)
+                } else {
+                    res.status(404).json(doc)
+                }  
             })
             .catch(err => res.status(500).json({Error: err}) )
     } else {
