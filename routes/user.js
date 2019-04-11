@@ -64,7 +64,7 @@ router.post('/', (req, res, next) => {
         user.save()
             .then(doc => {
                 if (doc) {
-                    res.status(200).json(doc)
+                    res.status(200).json(doc._id)
                 } else {
                     res.status(404).json({ Error: "Error creating user." })
                 }
