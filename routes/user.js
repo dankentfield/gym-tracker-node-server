@@ -58,14 +58,14 @@ router.post("/login/:email", (req, res) => {
       .then(doc => {
         
         if (doc[0].email === req.params.email) {
-          res.status(200).json(true);
+          res.status(200).json({authenticated: true, userId: doc[0]._id});
         } else {
-          res.status(404).json(false);
+          res.status(404).json({authenticated: false, userId: null});
         }
       })
-      .catch(err => res.status(500).json(false));
+      .catch(err => res.status(500).json({authenticated: false, userId: null}));
   } else {
-    res.status(400).json({ Error: "Please provide an ID" });
+    res.status(400).json({authenticated: false, userId: null});
   }
 });
 
