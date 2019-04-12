@@ -58,7 +58,7 @@ router.post("/login/:email", (req, res) => {
       .then(doc => {
         
         if (doc[0].email === req.params.email) {
-          res.status(200).json(doc);
+          res.status(200).json(true);
         } else {
           res.status(404).json(false);
         }
