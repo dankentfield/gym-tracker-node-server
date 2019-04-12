@@ -49,6 +49,26 @@ router.get('/email/:email', (req, res) => {
     }
 })
 
+router.get("/login/:email", (req, res) => {
+  const { password } = req.body;
+
+  if (req.params.email && password) {
+    User.find({ email: { $eq: req.params.email }, password: { $eq: password }},  {password: false})
+
+      .then(doc => {
+        
+        if (doc[0].email === req.params.email) {
+          res.status(200).json(doc);
+        } else {
+          res.status(404).json({ Error: "Password doesn't match" });
+        }
+      })
+      .catch(err => res.status(500).json({ Error: err }));
+  } else {
+    res.status(400).json({ Error: "Please provide an ID" });
+  }
+});
+
 
 router.post('/', (req, res, next) => {
 
