@@ -49,7 +49,7 @@ router.get('/email/:email', (req, res) => {
     }
 })
 
-router.get("/login/:email", (req, res) => {
+router.post("/login/:email", (req, res) => {
   const { password } = req.body;
 
   if (req.params.email && password) {
